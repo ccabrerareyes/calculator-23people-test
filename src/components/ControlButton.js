@@ -1,23 +1,17 @@
 import React from 'react'
-import useCalculator from './useCalculator'
+import useCalculator from '../context/useCalculator'
 
 export const ControlButton = (props) => {
-    const {name, title} = props
-    const {clickButton} = useCalculator()
+    const { name, title } = props
+    const { clickOperator } = useCalculator()
     var color = ''
 
     switch(name){
-        case 'operator':
-            color = 'button is-success is-light is-medium'
-            break;
         case 'equal':
-            color = 'button is-primary is-medium'
-            break;
-        case 'AC':
-            color = 'button is-danger is-medium'
+            color = 'button is-primary is-large'
             break;
         default:
-            color = 'button is-light is-medium'
+            color = 'button is-success is-light is-large'
             break
     }
     return(
@@ -26,7 +20,7 @@ export const ControlButton = (props) => {
                 className={color}
                 name={name}
                 value={title}
-                onClick={() => clickButton(name, title)} >
+                onClick={() => clickOperator(title)} >
                 <span>{title}</span>
             </button>
         </p>

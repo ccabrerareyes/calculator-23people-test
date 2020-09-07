@@ -1,5 +1,5 @@
 import React from 'react'
-import useCalculator from './useCalculator'
+import useCalculator from '../context/useCalculator'
 
 export const NumberDisplay = () => {
     const {counter} = useCalculator()

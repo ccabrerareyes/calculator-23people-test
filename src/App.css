@@ -1,6 +1,14 @@
 .App {
   text-align: center;
 }
-.container{
-  max-width: 50%;
+.container-calculator{
+  margin-left: 20%;
+  max-width: 65%;
+}
+
+@media (max-width: 768px) {
+  .container-calculator{
+    margin-left: 20%;
+    max-width: 50%;
+  }
 }
