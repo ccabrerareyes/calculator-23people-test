@@ -1,22 +1,29 @@
-import React, { useState } from 'react'
+import React, { useState } from "react";
+import PropTypes from "prop-types";
 
 const CalculatorContext = React.createContext([{}, () => {}]);
 
 const CalculatorProvider = (props) => {
-    // the counter is initialized to a given value
-    const [state, setState] = useState({
-        counter: props.initialValue,
-        firstNumber:  null,
-        secondNumber: null,
-        isNewNumber: false,
-        operator: null
-    })
+  const { initialValue, children } = props;
+  // the counter is initialized to a given value
+  const [state, setState] = useState({
+    counter: initialValue,
+    firstNumber: null,
+    secondNumber: null,
+    isNewNumber: false,
+    operator: null,
+  });
 
-    return (
-        <CalculatorContext.Provider value={[state, setState]}>
-            {props.children}
-        </CalculatorContext.Provider>
-    );
-}
+  return (
+    <CalculatorContext.Provider value={[state, setState]}>
+      {children}
+    </CalculatorContext.Provider>
+  );
+};
+
+CalculatorProvider.propTypes = {
+  initialValue: PropTypes.string.isRequired,
+  children: PropTypes.node.isRequired,
+};
 
 export { CalculatorContext, CalculatorProvider };

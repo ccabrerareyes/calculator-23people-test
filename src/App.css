@@ -1,13 +1,13 @@
 .App {
   text-align: center;
 }
-.container-calculator{
+.container-calculator {
   margin-left: 20%;
   max-width: 65%;
 }
 
 @media (max-width: 768px) {
-  .container-calculator{
+  .container-calculator {
     margin-left: 20%;
     max-width: 50%;
   }
