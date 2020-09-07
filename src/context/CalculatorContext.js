@@ -21,8 +21,12 @@ const CalculatorProvider = (props) => {
   );
 };
 
+CalculatorProvider.defaultValue = {
+  initialValue: "0",
+};
+
 CalculatorProvider.propTypes = {
-  initialValue: PropTypes.string.isRequired,
+  initialValue: PropTypes.string,
   children: PropTypes.node.isRequired,
 };
 

@@ -8,8 +8,7 @@ The project is developed with ReactJS, under the Hooks method, and was bootstrap
 
 ### Installation
 
-1.- Download the project
-2.- Within the directory execute
+Download the project, and within the directory execute
 
     npm install
 
@@ -17,9 +16,16 @@ In the project directory, you can run the common commands for a react project. T
 
     npm start
 
+### Testing
+
+To execute the tests, within the directory execute
+
+    npm test
+
 ## Components and technologies used
 
 - React v16.13.1
 - Bulma CSS Framework v0.9.0
 - ESLint v7.8.1
 - Prettier v2.1.1
+- react-hooks-testing-library v3.4.1

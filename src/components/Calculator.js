@@ -9,7 +9,7 @@ import { NumberDisplay } from "./NumberDisplay";
 
 export default function Calculator(props) {
   const { initialValue } = props;
-  const value = !Number.isNaN(initialValue) ? initialValue : 0;
+  const value = !Number.isNaN(initialValue) ? String(initialValue) : "0";
 
   return (
     <CalculatorProvider initialValue={value}>
@@ -50,5 +50,5 @@ export default function Calculator(props) {
 }
 
 Calculator.propTypes = {
-  initialValue: PropTypes.number.isRequired,
+  initialValue: PropTypes.string.isRequired,
 };

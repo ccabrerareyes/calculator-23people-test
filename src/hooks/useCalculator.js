@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { CalculatorContext } from "./CalculatorContext";
+import { CalculatorContext } from "../context/CalculatorContext";
 
 const useCalculator = () => {
   const [state, setState] = useContext(CalculatorContext);
@@ -9,41 +9,43 @@ const useCalculator = () => {
       case "+":
         setState((state) => ({
           ...state,
-          counter:
-            parseFloat(state.firstNumber) + parseFloat(state.secondNumber),
+          counter: String(
+            parseFloat(state.firstNumber) + parseFloat(state.secondNumber)
+          ),
         }));
         break;
       case "-":
         setState((state) => ({
           ...state,
-          counter:
-            parseFloat(state.firstNumber) - parseFloat(state.secondNumber),
+          counter: String(
+            parseFloat(state.firstNumber) - parseFloat(state.secondNumber)
+          ),
         }));
         break;
       case "x":
         setState((state) => ({
           ...state,
-          counter:
-            parseFloat(state.firstNumber) * parseFloat(state.secondNumber),
+          counter: String(
+            parseFloat(state.firstNumber) * parseFloat(state.secondNumber)
+          ),
         }));
         break;
       case "/":
-        if (state.secondNumber === 0) {
-          setState((state) => ({ ...state, counter: "ERROR" }));
-        } else if (state.firstNumber === 0) {
-          setState((state) => ({ ...state, counter: 0 }));
+        if (state.firstNumber === 0) {
+          setState((state) => ({ ...state, counter: "0" }));
         } else {
           setState((state) => ({
             ...state,
-            counter:
-              parseFloat(state.firstNumber) / parseFloat(state.secondNumber),
+            counter: String(
+              parseFloat(state.firstNumber) / parseFloat(state.secondNumber)
+            ),
           }));
         }
         break;
       case "=":
         setState((state) => ({
           ...state,
-          counter: parseFloat(state.secondNumber),
+          counter: String(parseFloat(state.secondNumber)),
         }));
         break;
       default:
@@ -103,7 +105,11 @@ const useCalculator = () => {
           }));
         }
       } else {
-        setState((state) => ({ ...state, counter: value, isNewNumber: false }));
+        setState((state) => ({
+          ...state,
+          counter: String(value),
+          isNewNumber: false,
+        }));
       }
     } else {
       switch (value) {
@@ -128,7 +134,7 @@ const useCalculator = () => {
               counter: String(state.counter) + value,
             }));
           } else {
-            setState((state) => ({ ...state, counter: value }));
+            setState((state) => ({ ...state, counter: String(value) }));
           }
           break;
       }
@@ -138,7 +144,7 @@ const useCalculator = () => {
   function clearAll() {
     setState((state) => ({
       ...state,
-      counter: 0,
+      counter: "0",
       firstNumber: null,
       secondNumber: null,
       operator: null,
@@ -151,6 +157,10 @@ const useCalculator = () => {
     inputnumber,
     clearAll,
     counter: state.counter,
+    firstNumber: state.firstNumber,
+    secondNumber: state.secondNumber,
+    operator: state.operator,
+    isNewNumber: state.isNewNumber,
   };
 };
 

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import useCalculator from "../context/useCalculator";
+import useCalculator from "../hooks/useCalculator";
 
 export const ACButton = (props) => {
   const { name, title } = props;

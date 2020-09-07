@@ -7,7 +7,7 @@ import "bulma/css/bulma.css";
 function App() {
   return (
     <div className="App">
-      <Calculator initialValue={0} />
+      <Calculator initialValue="0" />
     </div>
   );
 }
